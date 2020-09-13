@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))-ingress
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+        - backend:
+            serviceName: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))-service
+            servicePort: 80

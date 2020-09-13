@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))-deployment
+  labels:
+    app: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))
+spec:
+  selector:
+    matchLabels:
+      app: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))
+  template:
+    metadata:
+      labels:
+        app: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))
+    spec:
+      containers:
+      - name: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))
+        image: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;)):2e41ecc6
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        - containerPort: 8080
+          name: api
+          protocol: TCP
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "1000m"

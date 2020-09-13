@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))-service
+spec:
+  selector:
+    app: slugify(os.getenv(&#39;PROJECT_NAME&#39;, &#39;project&#39;))
+  ports:
+    - port: 80
+      name: http
+      protocol: TCP
+    - port: 8080
+      name: api
+      protocol: TCP
+    
