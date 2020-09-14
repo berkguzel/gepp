@@ -215,7 +215,7 @@ def get_main():
         print('Present. ✅')
         return 'main.py'
     else:
-        print('Not found  ❌')            # TODO: get main file's name
+        print('Not found  ❌')          
         raise NameError('Couldnt found main')
         
 
